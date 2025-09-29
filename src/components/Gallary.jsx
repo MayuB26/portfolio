@@ -68,7 +68,7 @@ export default function Gallery() {
   return (
     <section
       className="min-h-screen bg-gradient-to-br from-yellow-50 via-orange-50 to-pink-50 py-20 px-6"
-      id="gallery"
+      id="gallary"
     >
       {/* Header */}
       <div className="text-center mb-16">
