@@ -2,7 +2,7 @@ import { useState } from "react";
 
 export default function Navbar() {
   const [open, setOpen] = useState(false);
-  const sections = ["home", "about", "gallery", "contact"];
+  const sections = ["home", "about", "gallary", "contact"];
 
   // Smooth scroll handler for anchor links
   const handleScroll = (e, sec) => {
