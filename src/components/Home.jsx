@@ -400,18 +400,18 @@ export default function Home() {
             animate="visible"
             variants={heroVariants}
           >
-            <h1 className="text-6xl md:text-7xl font-black mb-6 tracking-tight leading-none">
+            <h1 className="text-4xl md:text-6xl font-black mb-6 tracking-tight leading-none">
               <span className="bg-gradient-to-r from-indigo-600 via-purple-600 to-pink-600 bg-clip-text text-transparent">
-                Crafting Visual
+                Visual Thinking,
               </span>
               <br />
               <span className="bg-gradient-to-r from-pink-600 via-rose-600 to-orange-500 bg-clip-text text-transparent">
-                Stories
+                Smart Design
               </span>
             </h1>
             <p className="text-lg text-gray-600 mb-10 leading-relaxed font-light">
-              I'm a passionate Graphic Designer focused on creating compelling and
-              modern visuals that elevate brands and engage audiences.
+              Hello!! My name is Vedant Uday Walve and I am studing in First
+              year of Bachelor of Design. I am a Student, Artist & Designer.
             </p>
             <motion.button
               onClick={() => handleScrollToSection("gallary")}
@@ -438,7 +438,7 @@ export default function Home() {
           >
             {/* Neon glow background */}
             <div className="absolute inset-0 bg-gradient-to-r from-cyan-400 via-purple-500 to-pink-500 rounded-3xl blur-2xl opacity-60 animate-pulse"></div>
-            
+
             {/* Image container */}
             <div className="relative h-full rounded-3xl overflow-hidden border-2 border-purple-400/50 backdrop-blur-sm">
               <img
@@ -452,8 +452,6 @@ export default function Home() {
           </motion.div>
         </div>
       </section>
-
-
     </>
   );
 }

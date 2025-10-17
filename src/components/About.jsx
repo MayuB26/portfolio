@@ -137,7 +137,7 @@ export default function About() {
         {/* Heading + intro */}
         <AnimatedWrapper delay={0.2}>
           <motion.h2
-            className="text-6xl font-black mb-8 text-center tracking-tight"
+            className="text-5xl font-black mb-8 text-center tracking-tight"
             whileInView={{ scale: [0.95, 1.02, 1] }}
             transition={{ duration: 0.8 }}
           >
@@ -151,12 +151,18 @@ export default function About() {
             whileInView={{ opacity: [0, 1] }}
             transition={{ duration: 1, delay: 0.3 }}
           >
-            I'm a passionate graphic designer turned frontend developer with a
-            keen eye for aesthetics and user experience. I specialize in
-            creating visually stunning interfaces that not only look great but
-            also provide intuitive user interactions. My journey combines
-            creative design principles with modern web technologies to deliver
-            exceptional digital experiences.
+            I'm a passionate designer currently pursuing my Bachelor's in Design
+            (1st year). With a strong foundation in visual storytelling and
+            aesthetics, I specialize in bringing ideas to life through color,
+            layout, and character-driven design. My skill set spans across
+            coloring, painting, typography, layout design, character and product
+            design, illustration, and 3D modeling. I work primarily with Adobe
+            Photoshop and Adobe Illustrator, leveraging these tools to craft
+            compelling visuals that communicate effectively. Although I’m a
+            fresher in the industry, I’m eager to grow and bring fresh, creative
+            perspectives to every project I undertake. My journey blends
+            artistic vision with functional design to create meaningful,
+            engaging experiences.
           </motion.p>
         </AnimatedWrapper>
 
@@ -166,12 +172,12 @@ export default function About() {
             {[
               {
                 number: "50+",
-                label: "Projects Completed",
+                label: "Completed Artworks",
                 icon: "📊",
                 gradient: "from-blue-500 to-cyan-500",
               },
               {
-                number: "3+",
+                number: "1+",
                 label: "Years Experience",
                 icon: "🕒",
                 gradient: "from-purple-500 to-pink-500",
