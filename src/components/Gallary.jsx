@@ -1,12 +1,14 @@
 import { useState, useEffect } from "react";
 
-const BASE_URL = import.meta.env.VITE_BASE_URL;
+const BASE_URL = "https://portfolio-backend-l6km.vercel.app";
 
 export default function Gallery() {
   const [images, setImages] = useState([]);
   const [selectedImage, setSelectedImage] = useState(null);
   const [loading, setLoading] = useState(true);
   const [currentPage, setCurrentPage] = useState(1);
+  const [touchStart, setTouchStart] = useState(0);
+  const [touchEnd, setTouchEnd] = useState(0);
 
   const itemsPerPage = 10;
   const totalPages = Math.ceil(images.length / itemsPerPage);
@@ -16,7 +18,6 @@ export default function Gallery() {
       .then((res) => res.json())
       .then((data) => {
         if (!Array.isArray(data)) throw new Error("Invalid image data");
-        // Store full image objects instead of filenames only
         setImages(data);
         setLoading(false);
       })
@@ -54,6 +55,66 @@ export default function Gallery() {
 
   const closeModal = () => setSelectedImage(null);
 
+  // Navigate to next image in modal
+  const nextImage = () => {
+    if (!selectedImage) return;
+    const nextIndex = (selectedImage.index + 1) % images.length;
+    setSelectedImage({
+      src: images[nextIndex].url,
+      index: nextIndex,
+    });
+  };
+
+  // Navigate to previous image in modal
+  const prevImage = () => {
+    if (!selectedImage) return;
+    const prevIndex = (selectedImage.index - 1 + images.length) % images.length;
+    setSelectedImage({
+      src: images[prevIndex].url,
+      index: prevIndex,
+    });
+  };
+
+  // Handle touch swipe
+  const handleTouchStart = (e) => {
+    setTouchStart(e.targetTouches[0].clientX);
+  };
+
+  const handleTouchEnd = (e) => {
+    setTouchEnd(e.changedTouches[0].clientX);
+    handleSwipe();
+  };
+
+  const handleSwipe = () => {
+    if (!selectedImage) return;
+    const swipeThreshold = 50;
+    const diff = touchStart - touchEnd;
+
+    if (Math.abs(diff) > swipeThreshold) {
+      if (diff > 0) {
+        // Swiped left -> next image
+        nextImage();
+      } else {
+        // Swiped right -> previous image
+        prevImage();
+      }
+    }
+  };
+
+  // Handle keyboard navigation
+  useEffect(() => {
+    if (!selectedImage) return;
+
+    const handleKeyDown = (e) => {
+      if (e.key === "ArrowRight") nextImage();
+      if (e.key === "ArrowLeft") prevImage();
+      if (e.key === "Escape") closeModal();
+    };
+
+    window.addEventListener("keydown", handleKeyDown);
+    return () => window.removeEventListener("keydown", handleKeyDown);
+  }, [selectedImage]);
+
   if (loading) {
     return (
       <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-yellow-50 via-orange-50 to-pink-50">
@@ -90,7 +151,7 @@ export default function Gallery() {
       <div className="max-w-7xl mx-auto grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-8">
         {currentImages.map((imageObj, i) => {
           const index = (currentPage - 1) * itemsPerPage + i;
-          const imageUrl = imageObj.url; // use full URL from API
+          const imageUrl = imageObj.url;
           return (
             <div
               key={imageObj.filename}
@@ -153,12 +214,13 @@ export default function Gallery() {
         </button>
       </div>
 
-      {/* Modal */}
+      {/* Modal with Swiper */}
       {selectedImage && (
         <div className="fixed inset-0 bg-black/90 backdrop-blur-sm z-50 flex items-center justify-center p-4">
+          {/* Close Button */}
           <button
             onClick={closeModal}
-            className="absolute top-6 right-6 w-12 h-12 bg-white/20 hover:bg-white/30 rounded-full flex items-center justify-center text-white z-10 group"
+            className="absolute top-6 right-6 w-12 h-12 bg-white/20 hover:bg-white/30 rounded-full flex items-center justify-center text-white z-10 group transition"
           >
             <svg
               className="w-6 h-6 group-hover:scale-110 transition"
@@ -174,22 +236,70 @@ export default function Gallery() {
               />
             </svg>
           </button>
-          <div className="relative max-w-4xl max-h-[90vh] bg-white p-8 rounded-lg shadow-2xl">
+
+          {/* Previous Arrow */}
+          <button
+            onClick={prevImage}
+            className="absolute left-6 top-1/2 -translate-y-1/2 w-12 h-12 bg-white/20 hover:bg-white/40 rounded-full flex items-center justify-center text-white z-10 group transition"
+          >
+            <svg
+              className="w-6 h-6 group-hover:scale-110 transition"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth={2}
+                d="M15 19l-7-7 7-7"
+              />
+            </svg>
+          </button>
+
+          {/* Image Container with Touch Support */}
+          <div
+            className="relative max-w-4xl max-h-[90vh] bg-white p-8 rounded-lg shadow-2xl"
+            onTouchStart={handleTouchStart}
+            onTouchEnd={handleTouchEnd}
+          >
             <img
               src={selectedImage.src}
               alt={`Memory ${selectedImage.index + 1}`}
-              className="w-full max-h-[70vh] object-contain rounded"
+              className="w-full max-h-[70vh] object-contain rounded cursor-grab active:cursor-grabbing"
             />
             <div className="mt-6 text-center">
               <h3 className="text-2xl font-bold text-gray-800 font-serif">
                 Artwork #{selectedImage.index + 1}
               </h3>
-              <p className="text-gray-600 text-lg mt-2">
-                A beautiful piece from my digital art collection
+              <p className="text-gray-500 text-sm mt-4">
+                {selectedImage.index + 1} / {images.length}
               </p>
             </div>
           </div>
-          <div className="absolute inset-0 -z-10" onClick={closeModal}></div>
+
+          {/* Next Arrow */}
+          <button
+            onClick={nextImage}
+            className="absolute right-6 top-1/2 -translate-y-1/2 w-12 h-12 bg-white/20 hover:bg-white/40 rounded-full flex items-center justify-center text-white z-10 group transition"
+          >
+            <svg
+              className="w-6 h-6 group-hover:scale-110 transition"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth={2}
+                d="M9 5l7 7-7 7"
+              />
+            </svg>
+          </button>
+
+          {/* Click outside to close */}
+          <div className="absolute inset-0 -z-10 " onClick={closeModal}></div>
         </div>
       )}
 

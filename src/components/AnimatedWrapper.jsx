@@ -3,7 +3,7 @@ import { useRef } from "react";
 
 export default function AnimatedWrapper({ children, delay = 0 }) {
   const ref = useRef(null);
-  const isInView = useInView(ref, { once: true }); // Animate only once when in view
+  const isInView = useInView(ref, { once: true });
 
   const variants = {
     hidden: { opacity: 0, y: 40 },
