@@ -178,9 +178,6 @@ export default function Gallery() {
                   <p className="text-sm text-gray-700 font-handwriting">
                     Art #{index + 1}
                   </p>
-                  <p className="text-xs text-gray-500 font-mono mt-1">
-                    2024 • Digital
-                  </p>
                 </div>
               </div>
 
