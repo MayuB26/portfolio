@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 
-const BASE_URL = "https://portfolio-backend-l6km.vercel.app";
+const BASE_URL = import.meta.env.VITE_BASE_URL;
 
 export default function Gallery() {
   const [images, setImages] = useState([]);
