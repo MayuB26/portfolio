@@ -138,8 +138,7 @@ export default function Gallery() {
         </h1>
         <div className="w-24 h-1 bg-gradient-to-r from-yellow-400 to-orange-400 mx-auto mb-6"></div>
         <p className="text-gray-600 text-lg max-w-2xl mx-auto leading-relaxed">
-          A collection of precious moments captured in time, each polaroid
-          telling its own unique story
+          Each project in this gallery represents a part of my creative evolution — ideas that started as sparks and grew into meaningful designs.
         </p>
         <p className="text-gray-500 mt-4">
           {images.length} {images.length === 1 ? "memory" : "memories"} on the
