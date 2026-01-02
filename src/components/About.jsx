@@ -147,22 +147,50 @@ export default function About() {
           </motion.h2>
 
           <motion.p
-            className="text-xl max-w-4xl leading-relaxed text-center mx-auto text-slate-700 font-light"
+            className="text-xl max-w-4xl leading-relaxed text-left mx-auto text-slate-700 font-light"
             whileInView={{ opacity: [0, 1] }}
             transition={{ duration: 1, delay: 0.3 }}
           >
-            I'm a passionate designer currently pursuing my Bachelor's in Design
-            (1st year). With a strong foundation in visual storytelling and
-            aesthetics, I specialize in bringing ideas to life through color,
-            layout, and character-driven design. My skill set spans across
-            coloring, painting, typography, layout design, character and product
-            design, illustration, and 3D modeling. I work primarily with Adobe
-            Photoshop and Adobe Illustrator, leveraging these tools to craft
-            compelling visuals that communicate effectively. Although I’m a
-            fresher in the industry, I’m eager to grow and bring fresh, creative
-            perspectives to every project I undertake. My journey blends
-            artistic vision with functional design to create meaningful,
-            engaging experiences.
+            A passionate{" "}
+            <span className="font-semibold text-purple-600">
+              MERN Stack Developer
+            </span>{" "}
+            with over{" "}
+            <span className="font-semibold">4 years of experience</span> in
+            building scalable, performant, and user-centric web applications.
+            Skilled in developing enterprise-level solutions using modern
+            JavaScript technologies and writing clean, maintainable, and
+            efficient code. Core expertise includes
+            <span className="font-semibold">
+              {" "}
+              React.js, Node.js, Express.js, Redux,
+            </span>{" "}
+            and
+            <span className="font-semibold"> Tailwind CSS</span>, crafting
+            responsive and reusable front-end and back-end components.
+            Experienced with
+            <span className="font-semibold"> MongoDB, MySQL, SQL,</span> and
+            version control using
+            <span className="font-semibold"> Git</span>, enabling complete
+            full-stack development from concept to deployment. Proficient in
+            <span className="font-semibold"> JavaScript</span> (Advanced) with
+            intermediate knowledge of
+            <span className="font-semibold"> PHP, Laravel,</span> and
+            <span className="font-semibold"> React Native</span>. Adept at
+            working with
+            <span className="font-semibold">
+              {" "}
+              HTML, CSS, SCSS, SASS, Bootstrap, JQuery,
+            </span>{" "}
+            and
+            <span className="font-semibold"> Postman</span> for API testing and
+            UI integration. Demonstrates strong{" "}
+            <span className="font-semibold">
+              problem-solving, collaboration, communication,
+            </span>
+            and <span className="font-semibold">adaptability</span> skills,
+            ensuring high-quality delivery and continuous learning through
+            evolving technologies and best practices.
           </motion.p>
         </AnimatedWrapper>
 
@@ -171,22 +199,22 @@ export default function About() {
           <div className="mt-16 grid grid-cols-1 md:grid-cols-3 gap-8 max-w-4xl mx-auto">
             {[
               {
-                number: "50+",
-                label: "Completed Artworks",
-                icon: "📊",
+                number: "10+",
+                label: "Enterprise Apps Built",
+                icon: "⚙️",
                 gradient: "from-blue-500 to-cyan-500",
               },
               {
-                number: "1+",
-                label: "Years Experience",
-                icon: "🕒",
-                gradient: "from-purple-500 to-pink-500",
+                number: "4+",
+                label: "Years in Full-Stack Dev",
+                icon: "💻",
+                gradient: "from-violet-500 to-fuchsia-500",
               },
               {
-                number: "100%",
-                label: "Client Satisfaction",
-                icon: "⭐",
-                gradient: "from-orange-500 to-rose-500",
+                number: "10+",
+                label: "Tech Stacks Mastered",
+                icon: "🧠",
+                gradient: "from-amber-500 to-orange-500",
               },
             ].map((stat, index) => (
               <motion.div

@@ -2,7 +2,7 @@ import { useState } from "react";
 
 export default function Navbar() {
   const [open, setOpen] = useState(false);
-  const sections = ["home", "about", "gallary", "contact"];
+  const sections = ["home", "about", "projects", "skills", "contact"];
 
   // Smooth scroll handler for anchor links
   const handleScroll = (e, sec) => {
@@ -21,7 +21,9 @@ export default function Navbar() {
       aria-label="Primary"
     >
       <div className="max-w-4xl mx-auto flex justify-between p-4 items-center">
-        <div className="text-3xl font-bold select-none text-blue-800">Vedant Walve</div>
+        <div className="text-3xl font-bold select-none text-blue-800">
+          Mayuresh Bandekar
+        </div>
 
         {/* Desktop menu */}
         <div className="hidden md:flex space-x-6">

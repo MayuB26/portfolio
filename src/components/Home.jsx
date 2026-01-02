@@ -402,16 +402,34 @@ export default function Home() {
           >
             <h1 className="text-4xl md:text-6xl font-black mb-6 tracking-tight leading-none">
               <span className="bg-gradient-to-r from-indigo-600 via-purple-600 to-pink-600 bg-clip-text text-transparent">
-                Visual Thinking,
+                Full Stack,
               </span>
               <br />
               <span className="bg-gradient-to-r from-pink-600 via-rose-600 to-orange-500 bg-clip-text text-transparent">
-                Smart Design
+                Software developer
               </span>
             </h1>
-            <p className="text-lg text-gray-600 mb-10 leading-relaxed font-light">
-              Hello!! My name is Vedant Uday Walve and I am studing in First
-              year of Bachelor of Design. I am a Student, Artist & Designer.
+            <p className="text-lg text-gray-900 mb-10 leading-relaxed font-light">
+              Hello! I’m{" "}
+              <span className="font-semibold text-indigo-600">
+                Mayuresh Bandekar
+              </span>
+              , a versatile{" "}
+              <span className="font-semibold text-purple-600">
+                MERN Stack Developer{" "}
+              </span>
+              with over{" "}
+              <span className="font-semibold">4+ years of experience</span> in
+              designing and developing scalable enterprise applications. I focus
+              on clean architecture, reusable components, and smooth user
+              experiences while bringing strong
+              <span className="font-semibold">
+                {" "}
+                problem-solving, collaboration,
+              </span>{" "}
+              and
+              <span className="font-semibold"> adaptability</span> skills to
+              every project.
             </p>
             <motion.button
               onClick={() => handleScrollToSection("gallary")}
@@ -442,7 +460,7 @@ export default function Home() {
             {/* Image container */}
             <div className="relative h-full rounded-3xl overflow-hidden border-2 border-purple-400/50 backdrop-blur-sm">
               <img
-                src="./my-profile-img.jpg"
+                src="./my-profile-img.png"
                 alt="Profile"
                 className="w-full h-full object-cover"
               />

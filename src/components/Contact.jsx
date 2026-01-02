@@ -1,19 +1,19 @@
 import {
-  FaFacebookF,
-  FaInstagram,
   FaPhone,
   FaEnvelope,
   FaMapMarkerAlt,
+  FaGithub,
+  FaLinkedin,
 } from "react-icons/fa";
 import AnimatedWrapper from "./AnimatedWrapper";
 
 export default function Contact() {
   const contactInfo = {
-    address: "Santacruz East, Mumbai, Maharashtra, India",
-    phone: "+91 9769818980",
-    email: "vedantwalve29@gmail.com",
-    facebook: "https://www.facebook.com/share/19YvXa9948/",
-    instagram: "https://www.instagram.com/_v.arts18?igsh=MTZoOHhnZnNpb2w0NQ==",
+    address: "Malad East, Mumbai, Maharashtra, India",
+    phone: "+91 8380835093",
+    email: "mayuresh.bandekar.26@gmail.com",
+    github: "https://github.com/mayureshbandekar",
+    linkedin: "https://www.linkedin.com/in/mayureshbandekar/",
   };
 
   return (
@@ -60,26 +60,26 @@ export default function Contact() {
 
             <div className="flex flex-col items-center justify-center space-y-6">
               <p className="text-lg font-semibold mb-2 tracking-wide">
-                Follow Us
+                Connect With Me
               </p>
               <div className="flex space-x-6 text-gray-600 text-2xl">
                 <a
-                  href={contactInfo.facebook}
+                  href={contactInfo.github}
                   target="_blank"
                   rel="noopener noreferrer"
-                  aria-label="Facebook"
-                  className="hover:text-blue-600 transition-colors"
+                  aria-label="GitHub"
+                  className="hover:text-gray-800 transition-colors"
                 >
-                  <FaFacebookF />
+                  <FaGithub />
                 </a>
                 <a
-                  href={contactInfo.instagram}
+                  href={contactInfo.linkedin}
                   target="_blank"
                   rel="noopener noreferrer"
-                  aria-label="Instagram"
-                  className="hover:text-pink-500 transition-colors"
+                  aria-label="LinkedIn"
+                  className="hover:text-blue-600 transition-colors"
                 >
-                  <FaInstagram />
+                  <FaLinkedin />
                 </a>
               </div>
             </div>
